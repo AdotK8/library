@@ -1,13 +1,10 @@
 const myLibrary = []; //initializing array for store of book objects
 
-let tempName; //initializing temporary variables to allow users to input new book objects
-let tempAuthor;
-let tempPages;
-let tempStatus;
 const library = document.querySelector('.books');
+const form = document.querySelector('form');
 
-function book (name, author, pages, status) { //book constructor 
-    this.name=name;
+function book (title, author, pages, status) { //book constructor 
+    this.title=title;
     this.author=author;
     this.pages=pages; 
     this.status=status;
@@ -21,11 +18,11 @@ myLibrary.push(book2);
 
 
 function addBookToLibrary(){ //function which takes user input, stores in temp variables, constructs book and then adds to library 
-    tempName = prompt("Book Name?");
+    tempTitle = prompt("Book Title?");
     tempAuthor = prompt("Book Author?");
     tempPages = prompt("Book Pages?");
     tempStatus = prompt("Book Status?");
-    newBook = new book (tempName, tempAuthor, tempPages, tempStatus);
+    newBook = new book (tempTitle, tempAuthor, tempPages, tempStatus);
     myLibrary.push(newBook);
     displayLibrary(myLibrary);
 }
@@ -43,31 +40,59 @@ for (let i = 0; i < myLibrary.length ; i++) {  //add all books in the library to
     newDiv.classList.add('bookCard');
     library.appendChild(newDiv); //adds new div to store each book 
 
-    const newName = document.createElement('div');
-    newName.classList.add('info');
-    const newContentName = document.createTextNode(myLibrary[i].name);
-    newName.appendChild(newContentName);
-    newDiv.appendChild(newName);
+    const newTitle = document.createElement('div'); //adds book name
+    newTitle.classList.add('info');
+    const newContentTitle = document.createTextNode(myLibrary[i].title);
+    newTitle.appendChild(newContentTitle);
+    newDiv.appendChild(newTitle);
 
-    const newAuthor = document.createElement('div');
+    const headerAuthor = document.createElement('div'); //creates 'Author' element
+    headerAuthor.classList.add('header')
+    const newContentAuthor1 = document.createTextNode('Author');
+    headerAuthor.appendChild(newContentAuthor1);
+    newDiv.appendChild(headerAuthor);
+
+    const newAuthor = document.createElement('div'); // adds book author
     newAuthor.classList.add('info');
     const newContentAuthor = document.createTextNode(myLibrary[i].author);
     newAuthor.appendChild(newContentAuthor);
     newDiv.appendChild(newAuthor);
 
-    const newPages = document.createElement('div');
+    const headerPages = document.createElement('div'); //creates 'Pages' element
+    headerPages.classList.add('header')
+    const newContentPages1 = document.createTextNode('Pages');
+    headerPages.appendChild(newContentPages1);
+    newDiv.appendChild(headerPages);
+
+    const newPages = document.createElement('div'); //adds book pages
     newPages.classList.add('info');
     const newContentPages = document.createTextNode(myLibrary[i].pages);
     newPages.appendChild(newContentPages);
     newDiv.appendChild(newPages);
 
-    const newStatus = document.createElement('div');
+    const newStatus = document.createElement('div'); //creates book status
     newStatus.classList.add('info');
     const newContentStatus = document.createTextNode(myLibrary[i].status);
     newStatus.appendChild(newContentStatus);
     newDiv.appendChild(newStatus);
 }
 }
+
+
+form.addEventListener("submit", (e)=> { //adds users inputted book to library 
+    e.preventDefault();
+
+    const input1 = document.getElementById("input1");
+    const input2 = document.getElementById("input2");
+    const input3 = document.getElementById("input3");
+    const input4 = document.getElementById("input4");
+
+    newBook = new book (input1.value, input2.value, input3.value, input4.value);
+    myLibrary.push(newBook);
+    displayLibrary(myLibrary);
+
+    form.reset();
+})
 
 
 

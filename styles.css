@@ -1,0 +1,18 @@
+.container{ 
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.books { 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1em;
+    margin: 1em;
+}
+
+.bookCard {
+    height: 100%;
+    width: 100%;
+    border: solid black;
+}
+

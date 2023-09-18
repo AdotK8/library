@@ -8,8 +8,38 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="addBookToLibrary()">Add Book</button>
-    <div class="books"></div>
+
+    <div class="container">
+        <div class="sidebar">
+            <form id="form">
+                <div><label for="name">Title</label></div>
+                <div><input name ="name" type="text" id="input1" required></div>
+                
+                <div><label for="author">Author</label></div>
+                <div><input name ="author" type="text" id="input2" required></div>
+                
+
+                <div><label for="pages">Pages</label></div>
+                <div><input name ="pages" type="number" id="input3" required></div>
+
+                <div><label for="status">Status</label></div>
+                    <select name="status" id="input4">
+                        <option value="Read">Read</option>
+                        <option value="Not Read">Not Read</option>
+                    </select>
+                
+
+                <button type="submit">submit</button>
+             
+            </form>
+
+        </div>
+
+       
+        <div class="books"></div>
+
+
+
   
     <script src="main.js"></script>
 </body>
