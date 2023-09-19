@@ -13,8 +13,8 @@ function book (title, author, pages, status) { //book constructor
 book1 = new book('Endurance', 'Alfred Lansing', 357, 'read');//making some manual books to add to library 
 book2 = new book('Born A Crime', 'Trever Noah', 288, 'not read');
 
-myLibrary.push(book1);
-myLibrary.push(book2);
+// myLibrary.push(book1);
+// myLibrary.push(book2);
 
 
 function addBookToLibrary(){ //function which takes user input, stores in temp variables, constructs book and then adds to library 
@@ -38,6 +38,8 @@ function displayLibrary(myLibrary) {
 for (let i = 0; i < myLibrary.length ; i++) {  //add all books in the library to the DOM 
     const newDiv = document.createElement('div');
     newDiv.classList.add('bookCard');
+    data = newDiv.dataset;
+    data.indexnumber = i;
     library.appendChild(newDiv); //adds new div to store each book 
 
     const newTitle = document.createElement('div'); //adds book name
@@ -75,9 +77,19 @@ for (let i = 0; i < myLibrary.length ; i++) {  //add all books in the library to
     const newContentStatus = document.createTextNode(myLibrary[i].status);
     newStatus.appendChild(newContentStatus);
     newDiv.appendChild(newStatus);
-}
-}
 
+    const newBin = document.createElement('div'); //creates bin button
+    newBin.classList.add('bin');
+    data = newBin.dataset;
+    data.indexnumber = i;
+    newDiv.appendChild(newBin);
+    
+    newDiv.addEventListener('click', () =>{
+        console.log(data.indexnumber);
+    } )
+    
+}
+}
 
 form.addEventListener("submit", (e)=> { //adds users inputted book to library 
     e.preventDefault();
@@ -93,9 +105,6 @@ form.addEventListener("submit", (e)=> { //adds users inputted book to library
 
     form.reset();
 })
-
-
-
 
 
 

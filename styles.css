@@ -16,3 +16,9 @@
     border: solid black;
 }
 
+.bin {
+    width: 20px;
+    height: 20px;
+    background-image: url(./images/trash-can-outline.svg);
+}
+
