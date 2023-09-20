@@ -10,22 +10,15 @@ function book (title, author, pages, status) { //book constructor
     this.status=status;
 }
 
-book1 = new book('Endurance', 'Alfred Lansing', 357, 'read');//making some manual books to add to library 
-book2 = new book('Born A Crime', 'Trever Noah', 288, 'not read');
+book1 = new book('Endurance', 'Alfred Lansing', 357, 'Read');//making some manual books to add to library 
+book2 = new book('Born A Crime', 'Trever Noah', 288, 'Not Read');
+book3 = new book('The Count of Monte Cristo', 'Alexandre Dumas', 1312, 'Read');
 
-// myLibrary.push(book1);
-// myLibrary.push(book2);
+myLibrary.push(book1);
+myLibrary.push(book2);
+myLibrary.push(book3);
 
 
-function addBookToLibrary(){ //function which takes user input, stores in temp variables, constructs book and then adds to library 
-    tempTitle = prompt("Book Title?");
-    tempAuthor = prompt("Book Author?");
-    tempPages = prompt("Book Pages?");
-    tempStatus = prompt("Book Status?");
-    newBook = new book (tempTitle, tempAuthor, tempPages, tempStatus);
-    myLibrary.push(newBook);
-    displayLibrary(myLibrary);
-}
 
 displayLibrary(myLibrary);
 
@@ -72,21 +65,46 @@ for (let i = 0; i < myLibrary.length ; i++) {  //add all books in the library to
     newPages.appendChild(newContentPages);
     newDiv.appendChild(newPages);
 
-    const newStatus = document.createElement('div'); //creates book status
+    const newStatus = document.createElement('button'); //creates book status
     newStatus.classList.add('info');
     const newContentStatus = document.createTextNode(myLibrary[i].status);
+        if (myLibrary[i].status === "Read"){ //adds class to book staus, if read or not read
+            newStatus.classList.add('true')
+        } else {
+            newStatus.classList.add('false')
+        }
     newStatus.appendChild(newContentStatus);
     newDiv.appendChild(newStatus);
+
+    newStatus.addEventListener('click', function() { //toggles the library status and class to unread/read when button is clicked 
+
+        if(this.innerHTML === "Read") {
+            this.classList.toggle('true')
+            this.classList.toggle('false')
+            this.innerHTML = "Not Read";
+            myLibrary[i].status = "Not Read";
+            console.log(myLibrary[i].status);
+
+        } else if (this.innerHTML === "Not Read")  {
+            this.classList.toggle('false')
+            this.classList.toggle('true')
+            this.innerHTML = "Read";
+            myLibrary[i].status = "Read";
+            console.log(myLibrary[i].status);
+    
+        };
+    })
 
     const newBin = document.createElement('div'); //creates bin button
     newBin.classList.add('bin');
     data = newBin.dataset;
-    data.indexnumber = i;
-    newDiv.appendChild(newBin);
-    
-    newDiv.addEventListener('click', () =>{
-        console.log(data.indexnumber);
-    } )
+    data.indexnumber = i; //adds data to each bin button with reference to index number in myLibrary array 
+    newDiv.appendChild(newBin); 
+    newBin.addEventListener('click', function() { //adds event listener to each bin button 
+        myLibrary.splice(this.dataset.indexnumber, 1); //deletes selected element from myLibrary array 
+        displayLibrary(myLibrary);//displays updated library 
+
+    });
     
 }
 }
@@ -102,10 +120,8 @@ form.addEventListener("submit", (e)=> { //adds users inputted book to library
     newBook = new book (input1.value, input2.value, input3.value, input4.value);
     myLibrary.push(newBook);
     displayLibrary(myLibrary);
-
     form.reset();
 })
-
 
 
 
