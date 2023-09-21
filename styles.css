@@ -1,18 +1,40 @@
+* {
+
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    margin: 0px;
+}
+
 .container{ 
     display: grid;
     grid-template-columns: 1fr 4fr;
-    padding: 1em;
+    height: 100%;
+    background-color: rgb(240, 240, 240);
+
 }
 
 .books { 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 1em;
+    grid-gap: 2em;
+    padding: 2em;
   
 }
 .bookCard {
     padding: 1em;
-    border: solid black;
+    border: solid rgba(0, 0, 0, 0.242);
+    height: 200px;
+    display: grid;
+    place-items: center;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 3em;
+    border-bottom-left-radius: 3em;
+    border-bottom-right-radius: 1em;  
+    box-shadow: rgba(182, 150, 85, 0.625) 0px 30px 60px -12px inset, rgba(182, 150, 85, 0.625) 0px 18px 36px -18px inset;
 }
 
 .bin {
@@ -21,10 +43,60 @@
     background-image: url(./images/trash-can-outline.svg);
 }
 
+.true, .false {
+    border-radius: 4px;
+    border: solid rgba(0, 0, 0, 0.3);
+
+}
+
 .true {
-    background-color: green;
+    background-color: rgba(255, 37, 37, 0.591) ;
+    color: white;
 }
 
 .false {
-    background-color: red;
+    background-color: rgba(37, 255, 37, 0.591);
+    color: rgba(0, 0, 0, 0.5);
 }
+
+.sidebar {
+    border-right: solid rgba(0, 0, 0, 0.6);
+    padding: 0em;
+    padding: 0em 3em 0em 3em;
+    background-color: #E2C799;
+    box-shadow: 0 0 10px black;
+    clip-path: inset(00px -10px 0px 0px);
+}
+
+form label {
+    font-size: 16px;
+}
+
+.title { 
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+input {
+    margin-bottom: 2em;
+    border-radius: 5px;
+    border:  1px solid rgba(0, 0, 0, 0.149);
+
+}
+
+.label {
+    margin-bottom: 2px;
+}
+
+h1 {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.header { 
+    font-weight: 600;
+}
+
+
+
+

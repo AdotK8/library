@@ -37,13 +37,14 @@ for (let i = 0; i < myLibrary.length ; i++) {  //add all books in the library to
 
     const newTitle = document.createElement('div'); //adds book name
     newTitle.classList.add('info');
+    newTitle.classList.add('title')
     const newContentTitle = document.createTextNode(myLibrary[i].title);
     newTitle.appendChild(newContentTitle);
     newDiv.appendChild(newTitle);
 
     const headerAuthor = document.createElement('div'); //creates 'Author' element
     headerAuthor.classList.add('header')
-    const newContentAuthor1 = document.createTextNode('Author');
+    const newContentAuthor1 = document.createTextNode('Author:');
     headerAuthor.appendChild(newContentAuthor1);
     newDiv.appendChild(headerAuthor);
 
@@ -55,7 +56,7 @@ for (let i = 0; i < myLibrary.length ; i++) {  //add all books in the library to
 
     const headerPages = document.createElement('div'); //creates 'Pages' element
     headerPages.classList.add('header')
-    const newContentPages1 = document.createTextNode('Pages');
+    const newContentPages1 = document.createTextNode('Pages:');
     headerPages.appendChild(newContentPages1);
     newDiv.appendChild(headerPages);
 
