@@ -14,14 +14,22 @@
             <h1>My Library</h1>
             <form id="form">
                 <div class="label"><label for="name">Title:</label></div>
-                <div><input name ="name" type="text" id="input1" required></div>
+                <div><input name ="name" type="text" id="input1" required
+                    oninvalid="this.setCustomValidity('Imma Need Something Here Dawg')"
+                    oninput="this.setCustomValidity('')"/></div>
+
+                
                 
                 <div class="label"><label for="author">Author:</label></div>
-                <div><input name ="author" type="text" id="input2" required></div>
+                <div><input name ="author" type="text" id="input2" required
+                    oninvalid="this.setCustomValidity('Imma Need Something Here Dawg')"
+                    oninput="this.setCustomValidity('')"/></div>
                 
 
                 <div class="label"><label for="pages">Pages:</label></div>
-                <div><input name ="pages" type="number" id="input3" required></div>
+                <div><input name ="pages" type="number" id="input3" required
+                    oninvalid="this.setCustomValidity('Imma Need Something Here Dawg')"
+                    oninput="this.setCustomValidity('')"/></div>
 
                 <div class="label"><label for="status">Status:</label></div>
                     <select name="status" id="input4">
