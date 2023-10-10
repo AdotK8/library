@@ -3,12 +3,23 @@ const myLibrary = []; //initializing array for store of book objects
 const library = document.querySelector('.books');
 const form = document.querySelector('form');
 
-function book (title, author, pages, status) { //book constructor 
-    this.title=title;
-    this.author=author;
-    this.pages=pages; 
-    this.status=status;
+
+class book {
+    constructor (title, author, pages, status){
+        this.title = title; 
+        this.author = author;
+        this.pages = pages; 
+        this.status = status;
+    }
 }
+
+
+// function book (title, author, pages, status) { //book constructor 
+//     this.title=title;
+//     this.author=author;
+//     this.pages=pages; 
+//     this.status=status;
+// }
 
 book1 = new book('Endurance', 'Alfred Lansing', 357, 'Read');//making some manual books to add to library 
 book2 = new book('Born A Crime', 'Trever Noah', 288, 'Not Read');
